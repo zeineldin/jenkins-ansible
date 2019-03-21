@@ -16,21 +16,22 @@
 #       port: 8080
 #       delay: 1
 #       state: drained
-#
+
+#  Remove the file to get out of the LoadBalancer 
    - file:
        path: /var/lib/tomcat8/webapps/ROOT/devops.html
        state: absent
 
 #  - shell: rm /var/lib/tomcat8/webapps/ROOT/devops.html
 
-   - name: Install Java
-     apt: name=default-jdk state=present
+#   - name: Install Java
+#     apt: name=default-jdk state=present
 
-   - name: Install Tomcat
-     apt: name=tomcat8 state=present
+#   - name: Install Tomcat
+#     apt: name=tomcat8 state=present
 
-   - name: Install Tomcat admin
-     apt: name=tomcat8-admin state=present
+#   - name: Install Tomcat admin
+#     apt: name=tomcat8-admin state=present
 
    - name: Configure Tomcat users
      copy:
@@ -71,9 +72,10 @@
 #   - pause:
 #       seconds: 50
 
-#    touch a file, using symbolic modes to set the permissions (equivalent to 0644)
+#    Create the file to join LoadBalancer 
    - file:
        path: /var/lib/tomcat8/webapps/ROOT/devops.html
        state: touch
+       
 #   - shell: touch /var/lib/tomcat8/webapps/ROOT/devops.html
   
