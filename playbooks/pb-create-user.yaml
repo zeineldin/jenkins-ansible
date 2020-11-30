@@ -1,0 +1,15 @@
+---
+- name: create user devops on node
+  hosts: web
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: create devops user
+    user: 
+      name: devops
+      state: absent
+      force: yes
+    register: usercreation
+  - debug:
+      var: usercreation
+...

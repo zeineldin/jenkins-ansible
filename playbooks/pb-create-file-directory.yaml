@@ -1,0 +1,34 @@
+---
+- name: play-book 1 - create a directory on web hosts .
+  hosts: web
+  tasks:
+    - name: Create a directory if it does not exist
+      file:
+        path: /tmp/devops_directory
+        state: directory
+        mode: '0755'
+        owner: ansible
+        group: ansible
+
+- name: play-book 2 - touch some files
+  hosts: web
+  tasks:
+  - name: Touch a file
+    file:
+      path: /tmp/devops2
+      state: directory
+      mode: '0777'
+
+  - name: Change file ownership , group and permissions
+    file:
+      path: /tmp/devops2
+      owner: ansible
+      group: ansible
+      mode: '0444'
+
+
+
+
+
+
+

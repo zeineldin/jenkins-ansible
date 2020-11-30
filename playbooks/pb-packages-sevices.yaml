@@ -1,0 +1,17 @@
+---
+- name: create user devops on node
+  hosts: web
+  become: yes
+  become_method: sudo
+  tasks:
+
+  - name: Is Bind Installed?
+    apt:
+      name: apache2
+      state: present 
+    register: usercreation
+  - debug:
+      var: usercreation
+
+  - name: Is Nginx Started?
+    service: name=nginx state=started

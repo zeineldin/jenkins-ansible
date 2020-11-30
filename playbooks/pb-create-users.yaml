@@ -1,0 +1,19 @@
+---
+- name: create user devops on node
+  hosts: web
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: create devops user
+    user: 
+      force: yes
+      name: "{{ item.name }}"
+      state: present
+      groups: "{{ item.groups }}"
+    loop:
+      - { name: 'testuser1', groups: 'root' }
+      - { name: 'testuser2', groups: 'root' }
+    register: usercreation
+  - debug:
+      var: usercreation
+...

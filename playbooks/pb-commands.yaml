@@ -1,0 +1,8 @@
+- name: return motd to registered var
+  command: cat /etc/motd
+  register: mymotd
+
+- name: check if rules file exists
+  stat:
+    path: /etc/shorewall/rules
+  register: shorewall_rules

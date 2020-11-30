@@ -1,0 +1,19 @@
+---
+- name: create user devops on node
+  hosts: web
+  become: yes
+  become_method: sudo
+  tasks:
+  - name: Copy a new "ntp.conf rs from the copied version"
+    copy:
+      src: /tmp/kokowawa
+      dest: /tmp/kokowawa
+      owner: root
+      group: root
+      mode: '0644'
+      backup: yes
+
+    register: usercreation
+  - debug:
+      var: usercreation
+...
