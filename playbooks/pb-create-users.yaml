@@ -17,3 +17,5 @@
  #     name: johnd
  #     state: absent
  #     remove: yes
+
+# refrences : https://docs.ansible.com/ansible/latest/collections/ansible/builtin/user_module.html
